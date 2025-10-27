@@ -1,0 +1,2231 @@
+{
+  "name": "Beautification Grants Scrape",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4188c94f-170b-4f42-8197-675f171bc1a5",
+              "name": "data",
+              "type": "string",
+              "value": "={{ $json.data.markdown }}"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "bde77297-0e6f-422f-8e05-26a28881a2e5",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        6464,
+        -176
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "model": "deepseek-reasoner",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatDeepSeek",
+      "typeVersion": 1,
+      "position": [
+        6688,
+        32
+      ],
+      "id": "b1f9c0a1-f826-41f9-93df-228a565b8dce",
+      "name": "DeepSeek Chat Model",
+      "credentials": {
+        "deepSeekApi": {
+          "id": "d9XyVGjzIfAwtRY7",
+          "name": "DeepSeek account 6"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/1ThbHUflt1ELuUDYZhXY_vBmhjLs2EXPFm56HnTHdU6E/edit?usp=sharing",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ThbHUflt1ELuUDYZhXY_vBmhjLs2EXPFm56HnTHdU6E/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name of Org": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Name_of_Org', ``, 'string') }}",
+            "Project Name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Project_Name', ``, 'string') }}",
+            "Description": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Description', ``, 'string') }}",
+            "Open Bid Date": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Open_Bid_Date', ``, 'string') }}",
+            "Bid Deadline": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Bid_Deadline', ``, 'string') }}",
+            "Contact Name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Contact_Name', ``, 'string') }}",
+            "Contact Phone": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Contact_Phone', ``, 'string') }}",
+            "Contact Email": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Contact_Email', ``, 'string') }}",
+            "Draft Email": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Draft_Email', ``, 'string') }}",
+            "Links": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Links', ``, 'string') }}",
+            "Current Available Grant": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Current_Available_Grant', ``, 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name of Org",
+              "displayName": "Name of Org",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Project Name",
+              "displayName": "Project Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Description",
+              "displayName": "Description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Open Bid Date",
+              "displayName": "Open Bid Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Bid Deadline",
+              "displayName": "Bid Deadline",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Contact Name",
+              "displayName": "Contact Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Contact Phone",
+              "displayName": "Contact Phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Contact Email",
+              "displayName": "Contact Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Draft Email",
+              "displayName": "Draft Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Links",
+              "displayName": "Links",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Current Available Grant",
+              "displayName": "Current Available Grant",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.6,
+      "position": [
+        6848,
+        32
+      ],
+      "id": "f28ef374-9f8a-47c7-bbeb-112aa44ecb56",
+      "name": "Append row in sheet in Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "Ul1utzQ8WWqHmupx",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4188c94f-170b-4f42-8197-675f171bc1a5",
+              "name": "data",
+              "type": "string",
+              "value": "={{ $json.data.markdown }}"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "9594bd5d-9d56-4290-a5c4-286fc50f1248",
+      "name": "Edit Fields7",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        7280,
+        -176
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatDeepSeek",
+      "typeVersion": 1,
+      "position": [
+        7504,
+        32
+      ],
+      "id": "1796dc0d-4d71-42f2-8d72-125372474bbb",
+      "name": "DeepSeek Chat Model5",
+      "credentials": {
+        "deepSeekApi": {
+          "id": "d9XyVGjzIfAwtRY7",
+          "name": "DeepSeek account 6"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/1ThbHUflt1ELuUDYZhXY_vBmhjLs2EXPFm56HnTHdU6E/edit?usp=sharing",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ThbHUflt1ELuUDYZhXY_vBmhjLs2EXPFm56HnTHdU6E/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name of Org": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Name_of_Org', ``, 'string') }}",
+            "Project Name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Project_Name', ``, 'string') }}",
+            "Description": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Description', ``, 'string') }}",
+            "Open Bid Date": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Open_Bid_Date', ``, 'string') }}",
+            "Bid Deadline": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Bid_Deadline', ``, 'string') }}",
+            "Contact Name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Contact_Name', ``, 'string') }}",
+            "Contact Phone": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Contact_Phone', ``, 'string') }}",
+            "Contact Email": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Contact_Email', ``, 'string') }}",
+            "Draft Email": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Draft_Email', ``, 'string') }}",
+            "Links": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Links', ``, 'string') }}",
+            "Current Available Grant": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Current_Available_Grant', ``, 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name of Org",
+              "displayName": "Name of Org",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Project Name",
+              "displayName": "Project Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Description",
+              "displayName": "Description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Open Bid Date",
+              "displayName": "Open Bid Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Bid Deadline",
+              "displayName": "Bid Deadline",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Contact Name",
+              "displayName": "Contact Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Contact Phone",
+              "displayName": "Contact Phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Contact Email",
+              "displayName": "Contact Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Draft Email",
+              "displayName": "Draft Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Links",
+              "displayName": "Links",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Current Available Grant",
+              "displayName": "Current Available Grant",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.6,
+      "position": [
+        7664,
+        32
+      ],
+      "id": "a553d6fd-f99d-4e05-af31-57c955ce69a0",
+      "name": "Append row in sheet in Google Sheets7",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "Ul1utzQ8WWqHmupx",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.firecrawl.dev/v1/scrape",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer fc-0661e7887d6c40e2aba6476ba133b99d"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"url\": \"https://www.communitybackyards.org/community-beyond-backyards-grants\",\n  \"formats\": [\n    \"markdown\"\n  ]\n}",
+        "options": {}
+      },
+      "id": "147f388d-f3a5-4cac-b23e-d98de1189796",
+      "name": "Extract Columbus Foundation Beyond Backyard Grants1",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        6272,
+        -176
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.data }}",
+        "options": {
+          "systemMessage": "You are given scraped webpage content which includes one or more tender/project listings. Your task is to extract the following fields from each listing:\n\n- Name of Org\n- Project Name\n- Description\n- Open Bid Date\n- Bid Deadline\n- Contact Name\n- Contact Phone\n- Contact Email\n- Links\n- Current Available Grant \n- Draft Email (compose a polite, professional message expressing interest or requesting details)\n\nFor each listing found, call the tool named **Append row in sheet in Google Sheets** with the correct values for these fields.\n\nMake one tool call per listing. If there are multiple listings, call the tool multiple times, once per listing.\n\nIf a value is missing, pass an empty string. Do **not** skip entries with missing fields.\n\nCheck the column in Google sheet Current Available Grant = Yes send the message in Gmail.\n\nEnsure that emails already sent are not resent. Everything else should continue working as it is.\n\nDo not repeat emails for the same Grant Availability.\n\nDo not return anything else. Only use the tool to append each structured row to the Google Sheet.\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2,
+      "position": [
+        6688,
+        -176
+      ],
+      "id": "d4332ed2-2a4b-4dc7-87a1-72cf074119e1",
+      "name": "Beyond Backyard Grants1"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.data }}",
+        "options": {
+          "systemMessage": "You are given scraped webpage content which includes one or more tender/project listings. Your task is to extract the following fields from each listing:\n\n- Name of Org\n- Project Name\n- Description\n- Open Bid Date\n- Bid Deadline\n- Contact Name\n- Contact Phone\n- Contact Email\n- Links\n- Current Available Grant\n- Draft Email (compose a polite, professional message expressing interest or requesting details)\n\nFor each listing found, call the tool named **Append row in sheet in Google Sheets** with the correct values for these fields.\n\nMake one tool call per listing. If there are multiple listings, call the tool multiple times, once per listing.\n\nIf a value is missing, pass an empty string. Do **not** skip entries with missing fields.\n\nCheck the column in Google sheet Current Available Grant = Yes send the message in Gmail.\n\nEnsure that emails already sent are not resent. Everything else should continue working as it is.\n\nDo not repeat emails for the same Grant Availability.\n\n\nDo not return anything else. Only use the tool to append each structured row to the Google Sheet.\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2,
+      "position": [
+        7504,
+        -176
+      ],
+      "id": "1ce8af66-d67d-454a-9015-34403a8b3ce4",
+      "name": "Franklinswcd1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.firecrawl.dev/v1/scrape",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer fc-0661e7887d6c40e2aba6476ba133b99d"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"url\": \"https://www.franklinswcd.org/conservation-mini-grants\",\n  \"formats\": [\n    \"markdown\"\n  ]\n}",
+        "options": {}
+      },
+      "id": "6420e7b9-26c0-4e91-8c0a-06a5eed3f523",
+      "name": "franklinswcd1",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        7072,
+        -176
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4188c94f-170b-4f42-8197-675f171bc1a5",
+              "name": "data",
+              "type": "string",
+              "value": "={{ $json.data.markdown }}"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "84bbf0a0-98e5-49e9-81ac-6e8c879e0f1b",
+      "name": "Edit Fields8",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        8128,
+        -176
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatDeepSeek",
+      "typeVersion": 1,
+      "position": [
+        8352,
+        32
+      ],
+      "id": "33ba3c1a-3475-4bee-8a97-8ab38a99e600",
+      "name": "DeepSeek Chat Model7",
+      "credentials": {
+        "deepSeekApi": {
+          "id": "d9XyVGjzIfAwtRY7",
+          "name": "DeepSeek account 6"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/1ThbHUflt1ELuUDYZhXY_vBmhjLs2EXPFm56HnTHdU6E/edit?usp=sharing",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ThbHUflt1ELuUDYZhXY_vBmhjLs2EXPFm56HnTHdU6E/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name of Org": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Name_of_Org', ``, 'string') }}",
+            "Project Name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Project_Name', ``, 'string') }}",
+            "Description": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Description', ``, 'string') }}",
+            "Open Bid Date": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Open_Bid_Date', ``, 'string') }}",
+            "Bid Deadline": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Bid_Deadline', ``, 'string') }}",
+            "Contact Name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Contact_Name', ``, 'string') }}",
+            "Contact Phone": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Contact_Phone', ``, 'string') }}",
+            "Contact Email": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Contact_Email', ``, 'string') }}",
+            "Draft Email": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Draft_Email', ``, 'string') }}",
+            "Links": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Links', ``, 'string') }}",
+            "Current Available Grant": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Current_Available_Grant', ``, 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name of Org",
+              "displayName": "Name of Org",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Project Name",
+              "displayName": "Project Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Description",
+              "displayName": "Description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Open Bid Date",
+              "displayName": "Open Bid Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Bid Deadline",
+              "displayName": "Bid Deadline",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Contact Name",
+              "displayName": "Contact Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Contact Phone",
+              "displayName": "Contact Phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Contact Email",
+              "displayName": "Contact Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Draft Email",
+              "displayName": "Draft Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Links",
+              "displayName": "Links",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Current Available Grant",
+              "displayName": "Current Available Grant",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.6,
+      "position": [
+        8528,
+        32
+      ],
+      "id": "5d18cd8f-0427-4fb0-b3db-478c20a7db69",
+      "name": "Append row in sheet in Google Sheets8",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "Ul1utzQ8WWqHmupx",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4188c94f-170b-4f42-8197-675f171bc1a5",
+              "name": "data",
+              "type": "string",
+              "value": "={{ $json.data.markdown }}"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "07fc3240-3ce3-4ee9-80a7-44dd94039f2e",
+      "name": "Edit Fields9",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        6192,
+        208
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatDeepSeek",
+      "typeVersion": 1,
+      "position": [
+        6432,
+        432
+      ],
+      "id": "201212b5-209e-4cf2-9d7e-945e52b0a1d7",
+      "name": "DeepSeek Chat Model8",
+      "credentials": {
+        "deepSeekApi": {
+          "id": "d9XyVGjzIfAwtRY7",
+          "name": "DeepSeek account 6"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/1ThbHUflt1ELuUDYZhXY_vBmhjLs2EXPFm56HnTHdU6E/edit?usp=sharing",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ThbHUflt1ELuUDYZhXY_vBmhjLs2EXPFm56HnTHdU6E/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name of Org": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Name_of_Org', ``, 'string') }}",
+            "Project Name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Project_Name', ``, 'string') }}",
+            "Description": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Description', ``, 'string') }}",
+            "Open Bid Date": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Open_Bid_Date', ``, 'string') }}",
+            "Bid Deadline": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Bid_Deadline', ``, 'string') }}",
+            "Contact Name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Contact_Name', ``, 'string') }}",
+            "Contact Phone": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Contact_Phone', ``, 'string') }}",
+            "Contact Email": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Contact_Email', ``, 'string') }}",
+            "Draft Email": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Draft_Email', ``, 'string') }}",
+            "Links": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Links', ``, 'string') }}",
+            "Current Available Grant": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Current_Available_Grant', ``, 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name of Org",
+              "displayName": "Name of Org",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Project Name",
+              "displayName": "Project Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Description",
+              "displayName": "Description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Open Bid Date",
+              "displayName": "Open Bid Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Bid Deadline",
+              "displayName": "Bid Deadline",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Contact Name",
+              "displayName": "Contact Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Contact Phone",
+              "displayName": "Contact Phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Contact Email",
+              "displayName": "Contact Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Draft Email",
+              "displayName": "Draft Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Links",
+              "displayName": "Links",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Current Available Grant",
+              "displayName": "Current Available Grant",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.6,
+      "position": [
+        6592,
+        432
+      ],
+      "id": "89386117-b992-4248-919e-1b80b8637ce3",
+      "name": "Append row in sheet in Google Sheets9",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "Ul1utzQ8WWqHmupx",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.firecrawl.dev/v1/scrape",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer fc-0661e7887d6c40e2aba6476ba133b99d"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"url\": \"https://development.franklincountyohio.gov/infrastructure-works?utm_source=chatgpt.com\",\n  \"formats\": [\n    \"markdown\"\n  ]\n}",
+        "options": {}
+      },
+      "id": "be11d5db-1702-4823-8609-424c652369c2",
+      "name": "FCIB2",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        5952,
+        208
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.data }}",
+        "options": {
+          "systemMessage": "You are given scraped webpage content which includes one or more tender/project listings. Your task is to extract the following fields from each listing:\n\n- Name of Org\n- Project Name\n- Description\n- Open Bid Date\n- Bid Deadline\n- Contact Name\n- Contact Phone\n- Contact Email\n- Links\n- Current Available Grant\n- Draft Email (compose a polite, professional message expressing interest or requesting details)\n\nFor each listing found, call the tool named **Append row in sheet in Google Sheets** with the correct values for these fields.\n\nMake one tool call per listing. If there are multiple listings, call the tool multiple times, once per listing.\n\nIf a value is missing, pass an empty string. Do **not** skip entries with missing fields.\n\nCheck the column in Google sheet Current Available Grant = Yes send the message in Gmail.\n\nEnsure that emails already sent are not resent. Everything else should continue working as it is.\n\nDo not repeat emails for the same Grant Availability.\n\n\nDo not return anything else. Only use the tool to append each structured row to the Google Sheet.\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2,
+      "position": [
+        6432,
+        208
+      ],
+      "id": "8a4035c5-58c3-4453-9b1b-bedc3babf0f3",
+      "name": "FCIB3"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4188c94f-170b-4f42-8197-675f171bc1a5",
+              "name": "data",
+              "type": "string",
+              "value": "={{ $json.data.markdown }}"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "ca829c4b-4553-4272-8f89-66c8afc059a7",
+      "name": "Edit Fields10",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        7040,
+        208
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatDeepSeek",
+      "typeVersion": 1,
+      "position": [
+        7280,
+        432
+      ],
+      "id": "376bb5f3-1ea7-433d-a96b-8e8a1720eae6",
+      "name": "DeepSeek Chat Model9",
+      "credentials": {
+        "deepSeekApi": {
+          "id": "d9XyVGjzIfAwtRY7",
+          "name": "DeepSeek account 6"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/1ThbHUflt1ELuUDYZhXY_vBmhjLs2EXPFm56HnTHdU6E/edit?usp=sharing",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ThbHUflt1ELuUDYZhXY_vBmhjLs2EXPFm56HnTHdU6E/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name of Org": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Name_of_Org', ``, 'string') }}",
+            "Project Name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Project_Name', ``, 'string') }}",
+            "Description": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Description', ``, 'string') }}",
+            "Open Bid Date": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Open_Bid_Date', ``, 'string') }}",
+            "Bid Deadline": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Bid_Deadline', ``, 'string') }}",
+            "Contact Name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Contact_Name', ``, 'string') }}",
+            "Contact Phone": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Contact_Phone', ``, 'string') }}",
+            "Contact Email": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Contact_Email', ``, 'string') }}",
+            "Draft Email": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Draft_Email', ``, 'string') }}",
+            "Links": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Links', ``, 'string') }}",
+            "Current Available Grant": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Current_Available_Grant', ``, 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name of Org",
+              "displayName": "Name of Org",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Project Name",
+              "displayName": "Project Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Description",
+              "displayName": "Description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Open Bid Date",
+              "displayName": "Open Bid Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Bid Deadline",
+              "displayName": "Bid Deadline",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Contact Name",
+              "displayName": "Contact Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Contact Phone",
+              "displayName": "Contact Phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Contact Email",
+              "displayName": "Contact Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Draft Email",
+              "displayName": "Draft Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Links",
+              "displayName": "Links",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Current Available Grant",
+              "displayName": "Current Available Grant",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.6,
+      "position": [
+        7440,
+        432
+      ],
+      "id": "d7001707-a2be-439c-bedd-8bdc4568a970",
+      "name": "Append row in sheet in Google Sheets10",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "Ul1utzQ8WWqHmupx",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks",
+              "triggerAtDay": [
+                1
+              ],
+              "triggerAtHour": 10
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        5968,
+        -176
+      ],
+      "id": "b49c01e1-5f7a-46ad-99d9-48805e8021d4",
+      "name": "Schedule Trigger1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.firecrawl.dev/v1/scrape",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer fc-0661e7887d6c40e2aba6476ba133b99d"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"url\": \"https://columbusfoundation.org/nonprofit-center/grant-opportunities/columbus-foundation-grants/operating-and-program-support/community-garden-grants\",\n  \"formats\": [\n    \"markdown\"\n  ]\n}",
+        "options": {}
+      },
+      "id": "2651330d-2b75-499c-809d-6713a8ab4192",
+      "name": "Columbus Foundation",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        7888,
+        -176
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.data }}",
+        "options": {
+          "systemMessage": "You are given scraped webpage content which includes one or more tender/project listings. Your task is to extract the following fields from each listing:\n\n- Name of Org\n- Project Name\n- Description\n- Open Bid Date\n- Bid Deadline\n- Contact Name\n- Contact Phone\n- Contact Email\n- Links\n- Current Available Grant\n- Draft Email (compose a polite, professional message expressing interest or requesting details)\n\nFor each listing found, call the tool named **Append row in sheet in Google Sheets** with the correct values for these fields.\n\nMake one tool call per listing. If there are multiple listings, call the tool multiple times, once per listing.\n\nIf a value is missing, pass an empty string. Do **not** skip entries with missing fields.\n\nCheck the column in Google sheet Current Available Grant = Yes send the message in Gmail.\n\nEnsure that emails already sent are not resent. Everything else should continue working as it is.\n\nDo not repeat emails for the same Grant Availability.\n\n\nDo not return anything else. Only use the tool to append each structured row to the Google Sheet.\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2,
+      "position": [
+        8352,
+        -176
+      ],
+      "id": "9ae525e8-ab87-49d9-83b3-327871349539",
+      "name": "Columbus Foundation1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.firecrawl.dev/v1/scrape",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer fc-0661e7887d6c40e2aba6476ba133b99d"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"url\": \"https://www.614beautiful.org/apply\",\n  \"formats\": [\n    \"markdown\"\n  ]\n}",
+        "options": {}
+      },
+      "id": "bb9cde82-535d-4a9a-bba5-a03cb3d37111",
+      "name": "614Beautiful",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        6832,
+        208
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.data }}",
+        "options": {
+          "systemMessage": "You are given scraped webpage content which includes one or more tender/project listings. Your task is to extract the following fields from each listing:\n\n- Name of Org\n- Project Name\n- Description\n- Open Bid Date\n- Bid Deadline\n- Contact Name\n- Contact Phone\n- Contact Email\n- Links\n- Current Available Grant\n- Draft Email (compose a polite, professional message expressing interest or requesting details)\n\nFor each listing found, call the tool named **Append row in sheet in Google Sheets** with the correct values for these fields.\n\nMake one tool call per listing. If there are multiple listings, call the tool multiple times, once per listing.\n\nIf a value is missing, pass an empty string. Do **not** skip entries with missing fields.\n\nCheck the column in Google sheet Current Available Grant = Yes send the message in Gmail.\n\nEnsure that emails already sent are not resent. Everything else should continue working as it is.\n\nDo not repeat emails for the same Grant Availability.\n\nDo not return anything else. Only use the tool to append each structured row to the Google Sheet.\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2,
+      "position": [
+        7280,
+        208
+      ],
+      "id": "a63f9276-b373-453b-96f2-536098dd7024",
+      "name": "614Beautiful1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.firecrawl.dev/v1/scrape",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer fc-0661e7887d6c40e2aba6476ba133b99d"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"url\": \"https://www.franklincountyohio.gov/Business-Development/Grant-Opportunities/Community-Partnership-Grants\",\n  \"formats\": [\n    \"markdown\"\n  ]\n}",
+        "options": {}
+      },
+      "id": "eebf4f9f-6290-4cc3-b135-a967b9961ca5",
+      "name": "614Beautiful2",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        7712,
+        208
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4188c94f-170b-4f42-8197-675f171bc1a5",
+              "name": "data",
+              "type": "string",
+              "value": "={{ $json.data.markdown }}"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "44285184-1f23-43ae-a0bb-528f008c01fa",
+      "name": "Edit Fields11",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        7968,
+        208
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatDeepSeek",
+      "typeVersion": 1,
+      "position": [
+        8224,
+        400
+      ],
+      "id": "1675c129-baac-402b-a029-a2c69c7e0913",
+      "name": "DeepSeek Chat Model10",
+      "credentials": {
+        "deepSeekApi": {
+          "id": "d9XyVGjzIfAwtRY7",
+          "name": "DeepSeek account 6"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/1ThbHUflt1ELuUDYZhXY_vBmhjLs2EXPFm56HnTHdU6E/edit?usp=sharing",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ThbHUflt1ELuUDYZhXY_vBmhjLs2EXPFm56HnTHdU6E/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name of Org": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Name_of_Org', ``, 'string') }}",
+            "Project Name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Project_Name', ``, 'string') }}",
+            "Description": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Description', ``, 'string') }}",
+            "Open Bid Date": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Open_Bid_Date', ``, 'string') }}",
+            "Bid Deadline": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Bid_Deadline', ``, 'string') }}",
+            "Contact Name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Contact_Name', ``, 'string') }}",
+            "Contact Phone": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Contact_Phone', ``, 'string') }}",
+            "Contact Email": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Contact_Email', ``, 'string') }}",
+            "Draft Email": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Draft_Email', ``, 'string') }}",
+            "Links": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Links', ``, 'string') }}",
+            "Current Available Grant": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Current_Available_Grant', ``, 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name of Org",
+              "displayName": "Name of Org",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Project Name",
+              "displayName": "Project Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Description",
+              "displayName": "Description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Open Bid Date",
+              "displayName": "Open Bid Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Bid Deadline",
+              "displayName": "Bid Deadline",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Contact Name",
+              "displayName": "Contact Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Contact Phone",
+              "displayName": "Contact Phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Contact Email",
+              "displayName": "Contact Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Draft Email",
+              "displayName": "Draft Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Links",
+              "displayName": "Links",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Current Available Grant",
+              "displayName": "Current Available Grant",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.6,
+      "position": [
+        8384,
+        400
+      ],
+      "id": "5cb5b911-760b-4bd7-91e0-9726df3a734e",
+      "name": "Append row in sheet in Google Sheets11",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "Ul1utzQ8WWqHmupx",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.data }}",
+        "options": {
+          "systemMessage": "You are given scraped webpage content which includes one or more tender/project listings. Your task is to extract the following fields from each listing:\n\n- Name of Org\n- Project Name\n- Description\n- Open Bid Date\n- Bid Deadline\n- Contact Name\n- Contact Phone\n- Contact Email\n- Links\n- Current Available Grant\n- Draft Email (compose a polite, professional message expressing interest or requesting details)\n\nFor each listing found, call the tool named **Append row in sheet in Google Sheets** with the correct values for these fields.\n\nMake one tool call per listing. If there are multiple listings, call the tool multiple times, once per listing.\n\nIf a value is missing, pass an empty string. Do **not** skip entries with missing fields.\n\nCheck the column in Google sheet Current Available Grant = Yes send the message in Gmail.\n\nEnsure that emails already sent are not resent. Everything else should continue working as it is.\n\nDo not repeat emails for the same Grant Availability. \n \nDo not return anything else. Only use the tool to append each structured row to the Google Sheet.\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2,
+      "position": [
+        8224,
+        208
+      ],
+      "id": "6457d174-8166-4db1-ba80-5ceb6ac9c332",
+      "name": "614Beautiful3"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "aJ8yJgBGF408I3VY",
+          "mode": "list",
+          "cachedResultName": "Email Agent"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        9120,
+        -16
+      ],
+      "id": "7bbe53f6-1e9a-4f07-9871-1c468c1f0391",
+      "name": "Execute Workflow"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/1ThbHUflt1ELuUDYZhXY_vBmhjLs2EXPFm56HnTHdU6E/edit?usp=sharing",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ThbHUflt1ELuUDYZhXY_vBmhjLs2EXPFm56HnTHdU6E/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Current Available Grant",
+              "lookupValue": "Yes"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        8592,
+        208
+      ],
+      "id": "ed1ddd2f-b3eb-45fe-b995-cbd54606905f",
+      "name": "Get row(s) in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "Ul1utzQ8WWqHmupx",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/1ThbHUflt1ELuUDYZhXY_vBmhjLs2EXPFm56HnTHdU6E/edit?usp=sharing",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ThbHUflt1ELuUDYZhXY_vBmhjLs2EXPFm56HnTHdU6E/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Status": "Done",
+            "row_number": "={{ $('If').item.json.row_number }}"
+          },
+          "matchingColumns": [
+            "row_number"
+          ],
+          "schema": [
+            {
+              "id": "Name of Org",
+              "displayName": "Name of Org",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Project Name",
+              "displayName": "Project Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Description",
+              "displayName": "Description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Open Bid Date",
+              "displayName": "Open Bid Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Bid Deadline",
+              "displayName": "Bid Deadline",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Contact Name",
+              "displayName": "Contact Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Contact Phone",
+              "displayName": "Contact Phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Contact Email",
+              "displayName": "Contact Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Draft Email",
+              "displayName": "Draft Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Links",
+              "displayName": "Links",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Current Available Grant",
+              "displayName": "Current Available Grant",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        9600,
+        208
+      ],
+      "id": "c5115a19-b179-4255-a693-80382e88cfdf",
+      "name": "Update row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "Ul1utzQ8WWqHmupx",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "me.ramzan.zulfiqar@gmail.com",
+        "subject": "Current Available Grant",
+        "emailType": "text",
+        "message": "=Hello there is a new grant available for{{ $json['Project Name'] }} by {{ $json['Name of Org'] }} available with a deadline to bid by {{ $json['Bid Deadline'] }}. Here is a link to the website {{ $('614Beautiful2').item.json.data.metadata.sourceURL }} and here is the description: {{ $('614Beautiful2').item.json.data.metadata['og:description'] }}.",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        9360,
+        208
+      ],
+      "id": "b84a8321-4abb-4d0c-9aec-2bec289327e8",
+      "name": "Send a message",
+      "webhookId": "c030ff21-eb2f-4da1-acb1-62caf91c347b",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "jGzex66Wzt2YxjDx",
+          "name": "Gmail account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "951a3908-fecb-4a3c-b3e2-707580809f4e",
+              "leftValue": "={{ $json['Current Available Grant'] }}",
+              "rightValue": "Yes",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "e9425a8b-b765-4469-8d18-30c0882f9973",
+              "leftValue": "={{ $json.Status }}",
+              "rightValue": "Done",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        9120,
+        272
+      ],
+      "id": "50094657-a4bc-4b80-820f-eedca73da85c",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        8832,
+        208
+      ],
+      "id": "a66a5b36-c89a-4b5a-8bcd-b8f11739d211",
+      "name": "Loop Over Items1"
+    }
+  ],
+  "pinData": {
+    "Schedule Trigger1": [
+      {
+        "json": {
+          "timestamp": "2025-07-29T22:36:05.139-04:00",
+          "Readable date": "July 29th 2025, 10:36:05 pm",
+          "Readable time": "10:36:05 pm",
+          "Day of week": "Tuesday",
+          "Year": "2025",
+          "Month": "July",
+          "Day of month": "29",
+          "Hour": "22",
+          "Minute": "36",
+          "Second": "05",
+          "Timezone": "America/New_York (UTC-04:00)"
+        }
+      }
+    ]
+  },
+  "connections": {
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Beyond Backyard Grants1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DeepSeek Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Beyond Backyard Grants1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet in Google Sheets": {
+      "ai_tool": [
+        [
+          {
+            "node": "Beyond Backyard Grants1",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields7": {
+      "main": [
+        [
+          {
+            "node": "Franklinswcd1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DeepSeek Chat Model5": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Franklinswcd1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet in Google Sheets7": {
+      "ai_tool": [
+        [
+          {
+            "node": "Franklinswcd1",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Columbus Foundation Beyond Backyard Grants1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Beyond Backyard Grants1": {
+      "main": [
+        [
+          {
+            "node": "franklinswcd1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Franklinswcd1": {
+      "main": [
+        [
+          {
+            "node": "Columbus Foundation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "franklinswcd1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields8": {
+      "main": [
+        [
+          {
+            "node": "Columbus Foundation1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DeepSeek Chat Model7": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Columbus Foundation1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet in Google Sheets8": {
+      "ai_tool": [
+        [
+          {
+            "node": "Columbus Foundation1",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields9": {
+      "main": [
+        [
+          {
+            "node": "FCIB3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DeepSeek Chat Model8": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "FCIB3",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet in Google Sheets9": {
+      "ai_tool": [
+        [
+          {
+            "node": "FCIB3",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "FCIB2": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "FCIB3": {
+      "main": [
+        [
+          {
+            "node": "614Beautiful",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields10": {
+      "main": [
+        [
+          {
+            "node": "614Beautiful1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DeepSeek Chat Model9": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "614Beautiful1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet in Google Sheets10": {
+      "ai_tool": [
+        [
+          {
+            "node": "614Beautiful1",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger1": {
+      "main": [
+        [
+          {
+            "node": "Extract Columbus Foundation Beyond Backyard Grants1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Columbus Foundation": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Columbus Foundation1": {
+      "main": [
+        [
+          {
+            "node": "FCIB2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "614Beautiful": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DeepSeek Chat Model10": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "614Beautiful3",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet in Google Sheets11": {
+      "ai_tool": [
+        [
+          {
+            "node": "614Beautiful3",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "614Beautiful1": {
+      "main": [
+        [
+          {
+            "node": "614Beautiful2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "614Beautiful2": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields11",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields11": {
+      "main": [
+        [
+          {
+            "node": "614Beautiful3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "614Beautiful3": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a message": {
+      "main": [
+        [
+          {
+            "node": "Update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Loop Over Items1": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "7d395538-2a61-448c-9da9-48b2554e392c",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "e08608bb3cc6241ab47739ddf438bc2f4d3f12dec51cc8f299735b38bcacd5f6"
+  },
+  "id": "ycPEEVaiJOj2BtyN",
+  "tags": []
+}
